@@ -1,0 +1,31 @@
+h1 {
+    color: #e20000;
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: .3rem;
+}
+
+p {
+    color: blue;
+    background-color: lightblue;
+    padding: 1rem;
+    border: 2px solid blue;
+    border-radius: .4rem;
+}
+
+button{
+    padding: 1rem;
+    margin: 1rem;
+    background-color: teal;
+    color: white;
+    border-radius: .5rem;
+}
+
+
+/* 
+Css likhny ka tarika
+1: css selector
+2:  property
+3: value
+
+*/
