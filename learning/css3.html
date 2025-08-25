@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display in Css</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .bg-color {
+            background-color: lightblue;
+            padding: 1rem;
+            margin: .4rem;
+            display: inline-block;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: plum;
+            margin: .5rem;
+            display: inline-block;
+            border-radius: .4rem;
+
+        }
+
+        .bg-img {
+            background-image: url(https://images.pexels.com/photos/33432010/pexels-photo-33432010.jpeg);
+            background-size: cover;
+        }
+
+        .bg-grad {
+            background-color: #5b342e;
+            background-image: linear-gradient(326deg, #5b342e 0%, #b31b1b 74%);
+             
+
+        }
+
+        .heading {
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-top: 80px;
+        }
+        .font-mocando{
+ font-family: "Macondo", cursive;
+        }
+        center {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <div class="box bg-img">
+                <h3 class="heading">House</h3>
+            </div>
+        </center>
+        <center>
+            <div class="box bg-grad">
+                <h3 class="heading font-mocando">House</h3>
+            </div>
+        </center>
+
+    </div>
+</body>
+
+</html>
