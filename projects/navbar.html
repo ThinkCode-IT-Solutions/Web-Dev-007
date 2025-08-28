@@ -13,11 +13,10 @@
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
+            color: white;
         }
 
-        body {
-            background-color: #023047;
-        }
+        body {}
 
         #navbar {
             background-color: #219ebc;
@@ -25,15 +24,16 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem;
-            margin: 1rem;
-            border-radius: 1rem;
+            /* margin: 1rem; */
+            /* border-radius: 1rem; */
             border: 2px solid #8ecae6;
             box-shadow: 5px 5px 10px grey;
         }
 
-        .brand h1{
+        .brand h1 {
             color: white
         }
+
         .navigation {
             display: flex;
             align-items: center;
@@ -54,12 +54,52 @@
             color: white;
             border-radius: .5rem;
             border: 2px solid white;
+
         }
 
         .navigation ul li a {
             color: white;
             text-decoration: none;
             /* font-weight: bold; */
+        }
+
+        /* HERO SECTION ================================ */
+
+        #hero-section {
+            display: flex;
+            padding: 3rem 4rem;
+            background-color: #023047;
+        }
+
+        .hero-img {
+            width: 300px;
+
+        }
+
+        .hero-btn-holder button {
+            background-color: black;
+            border: 2px solid white;
+            padding: .6rem 1.3rem;
+            border-radius: .5rem;
+            margin-right: .5rem;
+        }
+
+        .gap-1 {
+            margin: 1.5rem 0rem;
+        }
+
+        .side {
+            width: 50%;
+        }
+
+        .img-holder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-holder img {
+            width: 200px;
         }
     </style>
 </head>
@@ -84,6 +124,35 @@
             </div>
         </div>
     </div>
+
+
+
+    <div id="hero-section">
+        <div class="content side">
+            <h1 class="gap-1">Never Miss Another Lead Oppertunity</h1>
+            <p class="gap-1">BonzaCall is a wonder ai powered voice calling agent , that picks and dial calls on your
+                behalf</p>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                </svg> Good Quality
+            </div>
+            <div class="hero-btn-holder gap-1">
+                <button class="cta-primary">Get Started</button>
+                <button class="cta-secondary">Book a Demo</button>
+            </div>
+
+        </div>
+
+        <div class="img-holder side">
+            <img class="hero-img" src="../assets/images/hero-img-4.svg" alt="">
+        </div>
+    </div>
+
+
+
 </body>
 
 </html>
