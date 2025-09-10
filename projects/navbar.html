@@ -15,11 +15,14 @@
             font-family: "Poppins", sans-serif;
             color: white;
         }
-
+        :root{
+            --primary-color: #023047;
+            --secondary-color: #219ebc;
+        }
         body {}
 
         #navbar {
-            background-color: #219ebc;
+            background-color: var(--secondary-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -68,7 +71,7 @@
         #hero-section {
             display: flex;
             padding: 3rem 4rem;
-            background-color: #023047;
+            background-color: var(--primary-color);
         }
 
         .hero-img {
