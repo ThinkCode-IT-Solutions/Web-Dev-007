@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning GRID</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: violet;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+        }
+
+        .box {
+            background-color: white;
+            margin: .5rem;
+            padding: 1rem;
+            border-radius: .5rem;
+            /* font-weight: bold; */
+            text-align: center;
+
+        }
+
+        #box1 {
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+
+        #box2 {
+            grid-column-start: 1;
+            grid-column-end: 5;
+
+        }
+
+        #box3 {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+        #box5{
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        #box6{
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+        #box7{
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box" id="box1">Navbar</div>
+        <div class="box" id="box2">
+            <h1>Hero Section</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam odit et debitis porro, accusantium amet
+                dolore veritatis laboriosam nulla iure est dolorem incidunt dignissimos recusandae, doloremque dolor
+                necessitatibus totam natus.</p>
+            <button>Click me</button>
+        </div>
+
+        <div class="box" id="box3">
+            <h3>How to grow nails</h3>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus qui commodi nemo culpa ad veritatis quae
+                incidunt a perferendis, cupiditate aliquid iste eveniet nulla quis illo facilis debitis hic est fugiat.
+                Dolore ea atque magni, cupiditate doloremque maiores assumenda quia voluptates autem voluptate alias,
+                ut, neque praesentium vitae dolorum cumque ullam quaerat odit! Nesciunt, unde minus cum consectetur
+                corrupti expedita debitis architecto dolorem veniam laudantium alias mollitia quasi non eaque deserunt
+                itaque quibusdam harum omnis! Consequatur modi tempore, hic, necessitatibus voluptatibus assumenda harum
+                placeat quidem id deleniti odio. Dolore dolores libero reprehenderit, itaque cumque doloremque eveniet
+                fuga quam rerum modi corporis in architecto. Officia aperiam, praesentium nesciunt repellendus ullam
+                dolore veniam maiores numquam nostrum, et explicabo aliquid quos aspernatur hic sunt accusantium iure!
+                Asperiores fugiat possimus cumque, dolores harum aliquam? Tempora, ea cum nam, facilis voluptatem
+                impedit eaque est sapiente alias ipsum nostrum harum voluptates voluptatibus quo necessitatibus rerum
+                aut autem obcaecati illum corporis voluptatum explicabo? Numquam repellendus sed nihil cum consequuntur
+                suscipit vitae. Veniam sunt atque officia quisquam, et odit nemo maiores assumenda praesentium,
+                cupiditate quod recusandae laborum esse illum repellat voluptates, totam error veritatis porro. Dolor
+                quasi eligendi, quae eaque suscipit est animi, et ipsam nihil quos exercitationem quidem? Doloremque
+                tenetur quas expedita voluptate amet tempora eos temporibus laborum illo! Vitae earum iure delectus
+                voluptate incidunt hic assumenda sapiente, tenetur mollitia a obcaecati ducimus nesciunt voluptatem
+                deserunt maxime excepturi accusantium iste quibusdam vel! Sapiente, ipsum hic? Modi praesentium, maxime
+                dolores quia et omnis. Quasi illo consequatur cum, error hic voluptate nisi assumenda aut consectetur
+                nihil temporibus numquam modi eius dolorem nostrum. A laboriosam, nihil asperiores, delectus numquam non
+                error facere nulla nisi ab enim molestiae quia sequi aut autem. Nesciunt dignissimos corporis sunt
+                laborum officia ipsa ea harum dolorum inventore non. Mollitia libero facilis doloremque distinctio
+                eligendi. Totam repellat, eaque in repellendus natus quaerat porro neque incidunt reiciendis, ratione
+                perspiciatis ipsam! Aut ducimus aperiam beatae fugiat natus. Quis corporis a fugiat quam placeat
+                voluptates quisquam est dolores, ipsam at suscipit enim nihil eaque cumque. Sit nisi culpa ullam aut
+                fugit ipsa necessitatibus corrupti inventore distinctio accusamus veniam eveniet quae consequuntur
+                accusantium in, molestiae est ut similique? Debitis excepturi ut sed sequi vitae corrupti optio
+                consectetur reiciendis perferendis enim nostrum, sit adipisci voluptas magnam officiis aperiam
+                aspernatur accusantium nemo quia blanditiis alias, cumque, similique minus omnis. Nulla voluptatem,
+                optio officia sapiente similique unde! Quas iusto pariatur atque laborum nihil?
+            </p>
+        </div>
+        <div class="box" id="box4">
+            <ul>
+                <li>
+                    <a href="https://shahzadfarooq.com">Shahzad Farooq</a>
+
+                </li>
+                <li>
+                    <a href="https://zaidmunawar.com">Zaid Munawar</a>
+                </li>
+                <li>
+                    <a href="https://google.com">Google</a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="box" id="box5">Contact</div>
+        <div class="box" id="box6">Form</div>
+        <div class="box" id="box7">Footer</div>
+
+    </div>
+</body>
+
+</html>
