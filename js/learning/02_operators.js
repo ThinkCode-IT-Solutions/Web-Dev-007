@@ -5,8 +5,8 @@ console.log("Operators page");
  * there are 4 basic types of operators
  * - Arithematic operator (+,-,*,/,%)
  * - Camparison operator (<,>,<=,>=,==,===,!=)
- * - Assigment operator (=,+=,-=.*=,/=)
  * - logical operator (&&,||,!)
+ * - Assigment operator (=,+=,-=.*=,/=)
  * 
  * 
  */
@@ -47,3 +47,52 @@ let isMarried = true;
 console.log(!isMarried);
 console.log("Can I have a USA Visa: " + usaVisa)
 
+// Assignment operator
+let a = 34; // 34
+let b = 10; // 10
+let c = a + b; // 44
+
+a = b ; // a 10
+b = a;  // b 10
+c = b;  // c 10
+console.log(a,b,c)
+
+let salary = 100;
+salary = salary + 10;
+salary += 10;
+
+salary -= 15;
+salary *= 2;
+
+salary /= 3
+
+console.log(salary);
+
+/**
+ * Round #1 a  b  c  | a  b  c
+ * ----
+ * Zain     10 34 10   35   15   90 
+ * Ibrahim  34 10 44   35   15   90
+ * Abdullah 10 34 34   175  179  90
+ * ZAIN     10 10 34   140  194  90
+ * Muhammad 34 34 34   140  85   90
+ * Sohail   10 34 10   140  194  80
+ * Hashmat  34 10 44   quit--------
+ * Subhan   10 10 10   180  16   50
+ * Talha    10 34 10   20   24   50
+ */ 
+
+
+a = 10;
+b = 25;
+c = 50;
+
+a += b; //a => 35
+b -= c;  // b => -25
+b += c + b; // b => 0
+a *= 4;  // a => 140
+a = c + 5; //  a => 55
+b = a + 4; // b => 59
+
+console.log(a,b,c)
+// 55 59 50
