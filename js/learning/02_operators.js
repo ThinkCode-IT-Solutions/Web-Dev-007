@@ -37,7 +37,7 @@ console.log(result)
 
 
 
-// Logical Operator
+// Logical  -> return bool every time
 let nam = "usama";
 age  = 18;
 
