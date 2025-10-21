@@ -117,3 +117,21 @@ let grade = getGrades(percentage);
 
 
 console.log("Grade: " + grade ,"Percentage: " + percentage);
+
+
+
+
+// es6 arrow function
+let tableof = (table)=>{
+    let index = 1;
+    while(index <= 10){
+        let multiply = table * index;
+        let line = `${table} X ${index} = ${multiply}`;
+        console.log(line);
+        index++;
+    }
+}
+
+
+
+tableof(8);
