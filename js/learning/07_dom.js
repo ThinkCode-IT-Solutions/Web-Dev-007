@@ -13,4 +13,32 @@ button.style.boxShadow = "5px 5px 15px grey";
 console.log(button.classList)
 console.log(button.id)
 
+// let paragraphs = document.getElementsByClassName("para");
+let paragraphs = document.getElementsByTagName("p");
+console.log(paragraphs);
 
+
+// paragraphs[0].style.backgroundColor = "red";
+// paragraphs[1].style.backgroundColor = "green";
+
+
+// let index = 0;
+// while(index < paragraphs.length){
+//     let element = paragraphs[index];
+//     element.style.backgroundColor = "orchid";
+//     element.style.padding = "1rem";
+//     index++;
+// }
+
+
+
+
+
+let para = document.querySelector("#mainButton");
+let paraAll = document.querySelectorAll("#mainButton");
+console.log(paraAll);
+
+let firstPara = paraAll[0];
+firstPara.style.backgroundColor = "pink";
+
+para.style.backgroundColor = "purple";
