@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator</title>
+    <style>
+        /* --- Global Reset & Base --- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #fcfcfc;
+            /* A very light gray, almost white */
+            color: #1a1a1a;
+            line-height: 1.6;
+
+            /* Center the content */
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- Main Calculator Card --- */
+        .calculator-container {
+            background-color: #ffffff;
+            border: 1px solid #e6e6e6;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+
+            width: 100%;
+            max-width: 480px;
+            padding: 40px;
+        }
+
+        /* --- Header --- */
+        .container-header h1 {
+            font-size: 1.75rem;
+            /* 28px */
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .container-header p {
+            font-size: 1rem;
+            /* 16px */
+            color: #555;
+            margin-bottom: 28px;
+        }
+
+        /* --- Form Elements --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            /* 14px */
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #ffffff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Remove ugly number input spinners */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #333;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        /* --- Submit Button --- */
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+
+            color: #ffffff;
+            background-color: #111111;
+
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+
+            transition: background-color 0.2s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #333;
+        }
+
+        /* --- Result Section (Prominent) --- */
+        #result-section {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid #eee;
+        }
+
+        #result-section h2 {
+            font-size: 1.25rem;
+            /* 20px */
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        #result-output {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        #result-name-display {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        #percentage-display {
+            /* This is the prominent result */
+            font-size: 3.5rem;
+            /* 56px */
+            font-weight: 700;
+            color: #111;
+            line-height: 1.2;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 520px) {
+            .calculator-container {
+                padding: 24px;
+            }
+
+            .container-header h1 {
+                font-size: 1.5rem;
+            }
+
+            #percentage-display {
+                font-size: 3rem;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="calculator-container">
+        <header class="container-header">
+            <h1>Percentage Calculator</h1>
+            <p>Enter your details below to calculate your percentage.</p>
+        </header>
+
+        <form id="calculator-form">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="e.g., Jane Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total-marks">Total Marks</label>
+                <input type="number" id="total-marks" name="total-marks" placeholder="e.g., 600" required>
+            </div>
+
+            <div class="form-group">
+                <label for="obtained-marks">Obtained Marks</label>
+                <input type="number" id="obtained-marks" name="obtained-marks" placeholder="e.g., 510" required>
+            </div>
+
+            <button type="submit" id="calculate-btn">Calculate</button>
+        </form>
+
+        <section id="result-section">
+            <h2>Your Result</h2>
+            <div id="result-output">
+                <p id="result-name-display">Enter your details above.</p>
+                <p id="percentage-display">--.--%</p>
+            </div>
+        </section>
+
+    </main>
+    <!-- JS -->
+    <script>
+        
+            let form = document.querySelector("#calculator-form");
+            form.addEventListener("submit",function (e) {
+                e.preventDefault();
+
+                // collect form data
+                let name = document.querySelector("#name");
+                let obtainedMarksInput = document.querySelector("#obtained-marks");
+                let totalMarksInput = document.querySelector("#total-marks");
+
+                // parsing the number
+                let obtainedMarks = parseInt(obtainedMarksInput.value)
+                let totalMarks = parseInt(totalMarksInput.value);
+
+                // calculate the percentage
+                let percentage = (obtainedMarks/totalMarks) * 100;
+                percentage = percentage.toFixed(2);
+
+                let percentageDisplay = document.querySelector("#percentage-display");
+                percentageDisplay.innerHTML = percentage + "%";
+                console.log(percentage);
+            });
+    </script>
+</body>
+
+</html>
