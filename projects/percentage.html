@@ -221,28 +221,29 @@
     </main>
     <!-- JS -->
     <script>
-        
-            let form = document.querySelector("#calculator-form");
-            form.addEventListener("submit",function (e) {
-                e.preventDefault();
 
-                // collect form data
-                let name = document.querySelector("#name");
-                let obtainedMarksInput = document.querySelector("#obtained-marks");
-                let totalMarksInput = document.querySelector("#total-marks");
+        let form = document.querySelector("#calculator-form");
+        form.addEventListener("submit", function (e) {
+            // stop the default refreshing behavior
+            e.preventDefault();
 
-                // parsing the number
-                let obtainedMarks = parseInt(obtainedMarksInput.value)
-                let totalMarks = parseInt(totalMarksInput.value);
+            // collect form data
+            let name = document.querySelector("#name");
+            let obtainedMarksInput = document.querySelector("#obtained-marks");
+            let totalMarksInput = document.querySelector("#total-marks");
 
-                // calculate the percentage
-                let percentage = (obtainedMarks/totalMarks) * 100;
-                percentage = percentage.toFixed(2);
+            // parsing the number
+            let obtainedMarks = parseInt(obtainedMarksInput.value)
+            let totalMarks = parseInt(totalMarksInput.value);
 
-                let percentageDisplay = document.querySelector("#percentage-display");
-                percentageDisplay.innerHTML = percentage + "%";
-                console.log(percentage);
-            });
+            // calculate the percentage
+            let percentage = (obtainedMarks / totalMarks) * 100;
+            percentage = percentage.toFixed(2);
+
+            let percentageDisplay = document.querySelector("#percentage-display");
+            percentageDisplay.innerHTML = percentage + "%";
+            console.log(percentage);
+        });
     </script>
 </body>
 

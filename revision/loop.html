@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops in HTML</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Learning Loops</h1>
+
+    <script>
+        console.log("revision of loops")
+        /**
+         * loops are of threee types
+         * for, while, do while loop
+         * loops are mostly used to iterate over arrays
+         * loops need three things to run 
+         * - a controlling variable
+         * - a condition 
+         * - increment , decrement
+         * 
+         */
+
+        let friends = [
+            "Ali", "Hamza", "Zain", "Ahmad", "Usman", "Bilal", "Huzaifa", "Rehan", "Daniyal", "Saad",
+            "Hassan", "Taha", "Talha", "Ibrahim", "Ahsan", "Asad", "Imran", "Faizan", "Kamran", "Noman",
+            "Adeel", "Rizwan", "Shahid", "Adnan", "Furqan", "Salman", "Hafeez", "Umair", "Nabeel", "Faisal",
+            "Shoaib", "Yasir", "Qasim", "Murtaza", "Shahbaz", "Abdul Rehman", "Haseeb", "Arsalan", "Junaid", "Zeeshan",
+            "Sarfaraz", "Waqas", "Ammar", "Hammad", "Tariq", "Nashit", "Mehmood", "Suleman", "Aqeel", "Abid",
+            "Farhan", "Sameer", "Zubair", "Nouman", "Kashif", "Naeem", "Saif", "Owais", "Rafay", "Ehsan",
+            "Rayan", "Taimoor", "Farrukh", "Shayan", "Ayan", "Areeb", "Rehman", "Danish", "Zakir", "Zafar",
+            "Basit", "Moiz", "Anas", "Raza", "Hasnain", "Ayaz", "Haider", "Rayyan", "Fawad", "Mubashir",
+            "Haris", "Aqib", "Fahad", "Imad", "Adeel Ahmed", "Ali Raza", "Hussain", "Amaan", "Rizvi", "Zohair",
+            "Ammad", "Shahroz", "Subhan", "Sarmad", "Raheel", "Saifullah",
+        ];
+        // for (let index = 0; index < friends.length; index++) {
+        //     let friendName = friends[index];
+        //     console.log("Hi " + friendName + " have a good day");
+
+        // }
+
+
+        // while(index < friends.length){
+        //     let friend = friends[index];
+        //     let greet = `Hi ${friend} Have a nice day`;
+        //     console.log(greet);
+
+
+        //     index++;
+        // }
+
+        let index = 10000;
+        do {
+            let friend = friends[index];
+            let greet = `Hi ${friend} Have a terific day`;
+            console.log(greet);
+
+
+            index++;
+        } while (index < friends.length)
+
+
+
+    </script>
+</body>
+
+</html>
