@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechPulse News</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background: rgba(255, 255, 255, 0.98);
+        padding: 1rem 0;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #667eea;
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 4rem 2rem;
+        text-align: center;
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        opacity: 0.95;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .news-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        background: white;
+        border-radius: 30px 30px 0 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #333;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 2px;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .news-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: 1px solid #f0f0f0;
+      }
+
+      .news-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+      }
+
+      .card-image {
+        width: 100%;
+        height: 220px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-image::after {
+        content: "📰";
+        position: absolute;
+        font-size: 5rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.3;
+      }
+
+      .card-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #667eea;
+      }
+
+      .card-content {
+        padding: 1.5rem;
+      }
+
+      .card-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+        color: #999;
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+        color: #333;
+        font-weight: 700;
+      }
+
+      .card-excerpt {
+        color: #666;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      .read-more {
+        display: inline-block;
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+        transition: transform 0.3s;
+      }
+
+      .read-more:hover {
+        transform: translateX(5px);
+      }
+
+      .read-more::after {
+        content: " →";
+      }
+
+      .featured-card {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+
+      .featured-card .card-image {
+        height: 100%;
+        min-height: 350px;
+      }
+
+      .featured-card .card-content {
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .featured-card .card-title {
+        font-size: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .nav-links {
+          gap: 1rem;
+        }
+
+        .featured-card {
+          grid-template-columns: 1fr;
+        }
+
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">TechPulse</div>
+        <ul class="nav-links">
+          <button
+            style="
+              background: rgba(255, 72, 72, 0.2);
+              backdrop-filter: blur(10px);
+              -webkit-backdrop-filter: blur(10px);
+              border: 1px solid rgba(255, 255, 255, 0.3);
+              padding: 0.8rem 2rem;
+              border-radius: 50px;
+              color: #333333;
+              font-weight: 600;
+              font-size: 1rem;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            "
+            onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 40px rgba(0, 0, 0, 0.15)'"
+            onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.1)'"
+            id="fetchButton"
+          >
+            Fetch Latest news
+          </button>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Stay Informed, Stay Ahead</h1>
+      <p>Your daily dose of curated news from around the world</p>
+    </section>
+
+    <main class="news-container">
+      <!-- <h2 class="section-title">Featured Story</h2>
+        <div class="news-grid">
+            <article class="news-card featured-card">
+                <div class="card-image">
+                    <span class="card-badge">FEATURED</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span>⏱️ 5 min read</span>
+                        <span>📅 Today</span>
+                    </div>
+                    <h3 class="card-title">Breakthrough in Quantum Computing Changes Everything</h3>
+                    <p class="card-excerpt">Scientists have achieved a major milestone in quantum computing that could revolutionize data processing and encryption. This breakthrough promises to unlock new possibilities in artificial intelligence and complex problem-solving.</p>
+                    <a href="#" class="read-more">Read Full Story</a>
+                </div>
+            </article>
+        </div> -->
+
+      <h2 class="section-title">Latest News</h2>
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="card-image">
+            <span class="card-badge">TECH</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span>⏱️ 3 min read</span>
+              <span>📅 2 hours ago</span>
+            </div>
+            <h3 class="card-title">
+              AI Models Now Understand Context Better Than Ever
+            </h3>
+            <p class="card-excerpt">
+              New research shows significant improvements in natural language
+              processing capabilities.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div
+            class="card-image"
+            style="
+              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            "
+          >
+            <span class="card-badge">BUSINESS</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span>⏱️ 4 min read</span>
+              <span>📅 5 hours ago</span>
+            </div>
+            <h3 class="card-title">
+              Global Markets Rally on Economic Recovery Signs
+            </h3>
+            <p class="card-excerpt">
+              Investors respond positively to latest economic indicators and
+              policy announcements.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div
+            class="card-image"
+            style="
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            "
+          >
+            <span class="card-badge">SCIENCE</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span>⏱️ 6 min read</span>
+              <span>📅 1 day ago</span>
+            </div>
+            <h3 class="card-title">
+              New Exoplanet Discovery Could Harbor Life
+            </h3>
+            <p class="card-excerpt">
+              Astronomers identify a potentially habitable planet in a nearby
+              star system.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div
+            class="card-image"
+            style="
+              background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            "
+          >
+            <span class="card-badge">ENVIRONMENT</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span>⏱️ 5 min read</span>
+              <span>📅 1 day ago</span>
+            </div>
+            <h3 class="card-title">
+              Renewable Energy Adoption Reaches New Milestone
+            </h3>
+            <p class="card-excerpt">
+              Countries worldwide accelerate transition to clean energy sources.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div
+            class="card-image"
+            style="
+              background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            "
+          >
+            <span class="card-badge">HEALTH</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span>⏱️ 4 min read</span>
+              <span>📅 2 days ago</span>
+            </div>
+            <h3 class="card-title">
+              Revolutionary Treatment Shows Promise in Clinical Trials
+            </h3>
+            <p class="card-excerpt">
+              Medical researchers report breakthrough results in treating
+              chronic conditions.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div
+            class="card-image"
+            style="
+              background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            "
+          >
+            <span class="card-badge">INNOVATION</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span>⏱️ 3 min read</span>
+              <span>📅 2 days ago</span>
+            </div>
+            <h3 class="card-title">
+              Startup Unveils Game-Changing Battery Technology
+            </h3>
+            <p class="card-excerpt">
+              New energy storage solution could transform electric vehicle
+              industry.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </article>
+      </div>
+    </main>
+    <script>
+      let fetchNews = (e) => {
+        console.log("function is running");
+        const APIKEY = "fd8d9cccc8b8444194fa5063b029bcee";
+        const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${APIKEY}`;
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onprogress = () => {
+          e.target.innerHTML = `
+                <div style="
+                    width: 20px;
+                    height: 20px;
+                    border: 3px solid rgba(255, 255, 255, 0.3);
+                    border-top-color: #667eea;
+                    border-radius: 50%;
+                    animation: spin 0.8s linear infinite;
+                "></div>
+                <style>
+                    @keyframes spin {
+                        to { transform: rotate(360deg); }
+                    }
+                </style>
+            `;
+          console.log("data is in progress...");
+        };
+
+        xhr.onload = () => {
+          e.target.innerHTML = "Data Fetched";
+          console.log(xhr.responseText);
+
+          let response = JSON.parse(xhr.responseText);
+          console.log(response);
+
+
+          if(response.status == "ok"){
+            console.log("data is OK");
+
+          }else{
+            console.log("data is bad");
+          }
+        };
+
+
+        xhr.send();
+      };
+      let button = document.querySelector("#fetchButton");
+      console.log(button);
+      button.addEventListener("click", fetchNews);
+    </script>
+  </body>
+</html>
