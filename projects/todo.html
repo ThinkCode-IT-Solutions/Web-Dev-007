@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Application</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        padding: 40px;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 2.5em;
+      }
+
+      .form-container {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        display: flex;
+        gap: 10px;
+      }
+
+      input[type="text"] {
+        flex: 1;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      button {
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      thead {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      th {
+        padding: 18px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      tbody tr {
+        background: white;
+        transition: background-color 0.3s;
+      }
+
+      tbody tr:nth-child(even) {
+        background: #f8f9fa;
+      }
+
+      tbody tr:hover {
+        background: #e8eaf6;
+      }
+
+      td {
+        padding: 18px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .status {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .status.pending {
+        background: #fff3cd;
+        color: #856404;
+      }
+
+      .status.completed {
+        background: #d4edda;
+        color: #155724;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📝 My Todo List</h1>
+
+      <div class="form-container">
+        <form id="todoForm">
+          <div class="form-group">
+            <input
+              type="text"
+              class="todoInput"
+              placeholder="Enter a new task..."
+              required
+            />
+            <button type="submit">Add Task</button>
+          </div>
+        </form>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Task</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="todoContainer"></tbody>
+      </table>
+    </div>
+
+    <script>
+      let todoArray = [];
+
+      let saveTodo = (event) => {
+        // step 2 : stop the default behavior (refresh problem)
+        event.preventDefault();
+        // step 3 : retrieve the todo title
+        let todoInput = document.querySelector(".todoInput");
+        console.log(todoInput.value);
+        // step 4 : create a proper packet/object/model
+        let dateTime = new Date();
+        let todoItem = {
+          title: todoInput.value,
+          status: "pending",
+          created_at: dateTime,
+        };
+        // step 5 : empty the input for next title
+        todoInput.value = "";
+        todoInput.placeholder = "add another";
+
+        // step 6 : push the object to the array
+        todoArray.push(todoItem);
+
+        // step 7 : grab the todo container
+        let container = document.querySelector("#todoContainer");
+        todoArray.forEach((item) => {
+          let todoString = `
+                    <tr>
+                    <td>1</td>
+                    <td>${item.title}</td>
+                    <td><span class="status pending">Pending</span></td>
+                </tr>
+                `;
+          container.innerHTML += todoString;
+        });
+      };
+
+      // step 1 : grab the form and apply event listener
+      let form = document.querySelector("#todoForm");
+      form.addEventListener("submit", saveTodo);
+    </script>
+  </body>
+</html>
