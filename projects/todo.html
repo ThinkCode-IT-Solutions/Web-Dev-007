@@ -180,7 +180,6 @@
         event.preventDefault();
         // step 3 : retrieve the todo title
         let todoInput = document.querySelector(".todoInput");
-        console.log(todoInput.value);
         // step 4 : create a proper packet/object/model
         let dateTime = new Date();
         let todoItem = {
@@ -197,7 +196,12 @@
 
         // step 7 : grab the todo container
         let container = document.querySelector("#todoContainer");
-        todoArray.forEach((item) => {
+        //  step 8 : iterate over the array
+        // todoArray.forEach((item) => {
+
+        let index = 0;
+        while (index < todoArray.length) {
+          // step 9 : put the todo row into the container with data
           let todoString = `
                     <tr>
                     <td>1</td>
@@ -206,7 +210,10 @@
                 </tr>
                 `;
           container.innerHTML += todoString;
-        });
+          index++;
+        }
+
+        // });
       };
 
       // step 1 : grab the form and apply event listener

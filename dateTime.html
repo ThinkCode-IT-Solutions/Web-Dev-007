@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello to the Date and Time Js class</h1>
+
+
+    <script>
+        console.log("Hello from date and time js file");
+
+        let dateTime = new Date();
+        let date = dateTime.getDate();
+        let day = dateTime.getDay();
+        let month = dateTime.getMonth();
+        let year = dateTime.getFullYear();
+        let hour = dateTime.getHours();
+        let minutes = dateTime.getMinutes();
+        let seconds = dateTime.getSeconds();
+        let miliSeconds = dateTime.getMilliseconds();
+
+
+        let dayArray = ["sun","mon", "tue","wed","thu","fri","sat"];
+        let monthArray = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+
+        let currentMonth = monthArray[month];
+        let currentDay = dayArray[day];
+        console.log(currentMonth, currentDay);
+
+
+        let math = Math.PI
+        math = Math.SQRT1_2
+        math = Math.SQRT2
+        math = Math.abs(-99)
+        math = Math.cbrt(8)
+        math = Math.round(4.82)
+        math = Math.ceil(8.1)
+        math = Math.floor(8.9)
+        math = Math.pow(5,3)
+        math = Math.ceil(Math.random() * 1000000)
+
+        console.log(math);
+
+
+
+
+
+    </script>
+</body>
+</html>
